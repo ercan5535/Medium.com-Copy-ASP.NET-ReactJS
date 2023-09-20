@@ -6,26 +6,36 @@ Cookies are used for JWT Token operations.
 <br>
 
 <div>
-  <img src="https://github.com/ercan5535/full-project/assets/67562422/20351d4b-a12a-43ac-88a4-1d6522b065f7" width="500" height="400">
+  <img src="https://github.com/ercan5535/full-project/assets/67562422/2f3b78dd-4497-45f6-92a7-6e8bd593c80c" width="500" height="400">
 </div>
+
+
+
 
 ### API Gateway
 - Serves static files
 - Redirects reqeusts to relevant service
 
-### Auth Service
+### User Service
 - Responsible for User Register/Login/Logut
 - Responsible for Create/Refresh/Store/Blacklist JWT
+- JWT operations handled by Helpers/JwtHelper.cs
 - JWT parameters defined on appsettings.json
 ```
   "AccessTokenLifetime": 5,
   "RefreshTokenLifetime": 60
 ```
-- JWT operations handled by Helpers/JwtHelper.cs
+<div>
+  <img src="https://github.com/ercan5535/full-project/assets/67562422/d802e4c4-c991-4bc2-85dd-b4551d784ad7" width="250" >
+</div>
 
 ### Blog Service
 - Responsible for CRUD operations (blog, like, comment).
 - Authenticate requests by checking tokens on cache
+<div>
+  <img src="https://github.com/ercan5535/full-project/assets/67562422/a1a38e2a-eb23-4b44-b7e3-96ab46ae99b7" width="250" >
+</div>
+
 
 ### Cache
 - Holds (Token, UserData) pairs
