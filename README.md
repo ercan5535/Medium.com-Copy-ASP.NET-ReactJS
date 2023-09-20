@@ -5,10 +5,9 @@ Cookies are used for JWT Token operations.
 <br>
 <br>
 
-<div align="center">
+<div>
   <img src="https://github.com/ercan5535/full-project/assets/67562422/20351d4b-a12a-43ac-88a4-1d6522b065f7" width="500" height="400">
 </div>
-<br>
 
 ### API Gateway
 - Serves static files
@@ -17,31 +16,26 @@ Cookies are used for JWT Token operations.
 ### Auth Service
 - Responsible for User Register/Login/Logut
 - Responsible for Create/Refresh/Store/Blacklist JWT
-- JWT parameters defined on settings.py
+- JWT parameters defined on appsettings.json
 ```
-JWT = {
-  "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-  "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-  "ALGORITHM": "HS256",
-  "SIGNING_KEY": "MY_SIGNING_KEY_123",
-}
+  "AccessTokenLifetime": 5,
+  "RefreshTokenLifetime": 60
 ```
-- JWT operations handled by jwt_helper.py
+- JWT operations handled by Helpers/JwtHelper.cs
 
-### Transactions Service
-- Responsible for CRUD operations.
-- Authenticate and Authorize(Only managers accounts can confirm Transactions) by checking tokens on cache
+### Blog Service
+- Responsible for CRUD operations (blog, like, comment).
+- Authenticate requests by checking tokens on cache
 
 ### Cache
 - Holds (Token, UserData) pairs
-- Holds JWT Access tokens for validation from Transaction Service
+- Holds JWT Access tokens for validation from Blog Service
 - Holds JWT Refresh tokens for blacklisting Refresh tokens
 
 ### Front-End
-- It is a simple single page application.
-- There are 2 versions, First I done with vanilla js then I added react version after I learnt react.
-- Login, Register, All Transactions, Add Transaction and Transaction Details Pages are available
-- Update, Delete, Confirm operations are can be done on Transaction Details Page
+- It is a simple version of medium.com
+- Blogs can be created cell by cell like on medium.com
+- react-markdown used for text displaying
 
 # Usage
 ```
@@ -49,4 +43,3 @@ docker-compose up
 ```
 command is enough to run all services <br>
 NGINX will listen localhost:80 for serving react app <br>
-also localhost:80/vanilla/ is up for first version.
