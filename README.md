@@ -23,6 +23,7 @@ Cookies are used for JWT Token operations.
 - JWT operations handled by Helpers/JwtHelper.cs
 - JWT parameters defined on appsettings.json
 ```
+  "JwtSecretKey": "MY-SECRET-KEY-123456789",
   "AccessTokenLifetime": 5,
   "RefreshTokenLifetime": 60
 ```
