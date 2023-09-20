@@ -1,7 +1,7 @@
 # Description
 
 It is a medium.com copy with ASP.NET micro services and React JS.<br>
-Cookies are used for JWT Token operations.
+Cookies are used for JWT Tokens storing.
 <br>
 <br>
 
@@ -9,9 +9,7 @@ Cookies are used for JWT Token operations.
   <img src="https://github.com/ercan5535/full-project/assets/67562422/2f3b78dd-4497-45f6-92a7-6e8bd593c80c" width="500" height="400">
 </div>
 
-### API Gateway
-- Serves static files
-- Redirects reqeusts to relevant service
+# Services
 
 ### User Service
 <div>
@@ -36,16 +34,20 @@ Cookies are used for JWT Token operations.
 - Responsible for CRUD operations (blog, like, comment).
 - Authenticate requests by checking tokens on cache
 
+### Front-End
+- It is a simple version of medium.com
+- Blogs can be created cell by cell like on medium.com
+- react-markdown used for text displaying
+  
+### API Gateway
+- Serves static files
+- Redirects reqeusts to relevant service
 
 ### Cache
 - Holds (Token, UserData) pairs
 - Holds JWT Access tokens for validation from Blog Service
 - Holds JWT Refresh tokens for blacklisting Refresh tokens
 
-### Front-End
-- It is a simple version of medium.com
-- Blogs can be created cell by cell like on medium.com
-- react-markdown used for text displaying
 
 # Usage
 ```
