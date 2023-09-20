@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Vanilla JS</title>
+  </head>
+  <body>
+    <div id="not_logged_in_page" style="display: none;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Django CRM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <button id="login_page" class="nav-link" >Login</button>
+                </li>
+                <li class="nav-item">
+                  <button id="register_page" class="nav-link" >Register</button>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="col-md-6 offset-md-3">
+        <br>
+        <div id="unlogged_in_alert_message" class="alert alert-secondary" role="alert" style="display: none;">
+        </div>
+        <br>
+        <div id="unlogged_in_error_message" style="color: red; display: none;"></div>
+        <form id="login_form">
+          <h1>Log In</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="LoginEmail" placeholder="Enter email">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="LoginPassword" placeholder="Password">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-secondary">Log In</button>
+        </form>
+        <form id="register_form">
+          <h1>Register</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="RegisterEmail" placeholder="Enter email">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="RegisterPassword1" placeholder="Password">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password Confirmation</label>
+            <input type="password" class="form-control" id="RegisterPassword2" placeholder="Password Confirmation">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">First Name</label>
+            <input type="text" class="form-control" id="RegisterFirstName" placeholder="First Name">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Last Name</label>
+            <input type="text" class="form-control" id="RegisterLastname" placeholder="Last Name">
+          </div>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="RegisterManagerCheck">
+            <label class="form-check-label" for="flexCheckDefault">
+              Manager Account
+            </label>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-secondary">Register</button>
+        </form>
+      </div>
+    </div>
+    <div id="logged_in_page" style="display: none;">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Django CRM</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <button id="all_transactions_page" class="nav-link">Transactions</button>
+              </li>
+                <li class="nav-item">
+                  <button id="add_transaction_page" class="nav-link">Add Transaction</button>
+                </li>
+            </ul>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item ml-auto">
+                <button href="" id="logout" class="nav-link">Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="col-md-6 offset-md-3">
+        <br>
+        <div id="logged_in_alert_message" class="alert alert-secondary" role="alert" style="display: none;">
+        </div>
+        <br>
+        <div id="all_transactions_div">
+          <h1>All Transactions</h1>
+          <br>
+          <table id="transactions_table" class="text-nowrap table table-secondary table-striped table-hover table-bordered table-sm" style="display: block;">
+            <caption>Hit ID to see/edit transaction details</caption>
+            <thead class="table-dark" >
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Department</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Created By</th>
+                <th scope="col">Confirm Status</th>
+                <th scope="col">Created At</th>
+                </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          </table> 
+        </div>
+        <div id="logged_in_error_message" style="color: red; display: none;"></div>
+        <form id="add_transaction_form">
+          <h1>Add Transaction</h1>
+          <div class="form-group">
+            <label>Department</label>
+            <input type="text" class="form-control" id="NewTransactionDepartment" placeholder="Enter Department">
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="number" step="0.01" class="form-control" id="NewTransactionAmount" placeholder="Enter Amount">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-secondary">Add Transaction</button>
+        </form>
+        <div id="edit_transaction_div" style="display: none;">
+          <form id="update_transaction_form">
+            <h1>Transaction Details</h1>
+            <div class="form-group">
+              <label>Department</label>
+              <input type="text" class="form-control" id="TransactionDetailDepartment" placeholder="Enter Department">
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" step="0.01" class="form-control" id="TransactionDetailAmount" placeholder="Enter Amount">
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Confirm Status</label>
+              <input type="text" class="form-control" id="TransactionDetailConfirmed" readonly>
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Created By</label>
+              <input type="text" class="form-control" id="TransactionDetailCreatedBy" readonly>
+            </div>
+            <br>
+            <div class="form-group">
+              <label>Created At</label>
+              <input type="text" class="form-control" id="TransactionDetailCreatedAt" readonly>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary">Update Transaction</button>
+          </form>
+          <br>
+          <button type="button" class="btn btn-danger" id="delete_transaction_button">Delete Transaction</button>
+          <br>
+          <br>
+          <button type="button" id="confirm_transaction_button" style="display: none;"></button>
+        </div>
+      </div>
+    </div>
+  <script src="functions.js"></script>
+  </body>
+</html>

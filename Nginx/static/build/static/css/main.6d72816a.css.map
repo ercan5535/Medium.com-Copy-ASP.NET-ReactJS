@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.6d72816a.css","mappings":"AAAA,eACE,SACF,CAEA,WACE,qBACF,CAEA,eACE,mBACF","sources":["index.css"],"sourcesContent":[".error-message{\n  color: red;\n}\n\n.confirmed{\n  color: green !important;\n}\n\n.not-confirmed{\n  color: red !important;\n}"],"names":[],"sourceRoot":""}

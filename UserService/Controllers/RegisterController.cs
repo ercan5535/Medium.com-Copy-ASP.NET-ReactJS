@@ -1,0 +1,37 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using UserService.Data;
+using UserService.Dtos;
+using UserService.Models;
+
+namespace UserService.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RegisterController : ControllerBase
+    {
+        private readonly IUserServiceRepo _repository;
+
+        public RegisterController(IUserServiceRepo repository)
+        {
+            _repository = repository;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] UserCreateDto userCreateDto)
+        {
+            // Ensure request is proper
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var response = await _repository.RegisterUser(userCreateDto);
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
+    }
+}
