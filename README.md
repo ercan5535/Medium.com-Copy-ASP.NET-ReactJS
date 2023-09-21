@@ -26,6 +26,11 @@ Cookies are used for JWT Tokens storing.
   "RefreshTokenLifetime": 60
 ```
 
+- Health Check 
+```
+{"status":"Healthy","totalDuration":"00:00:00.1951767","entries":{"Postgre SQL Server Check":{"data":{},"duration":"00:00:00.0882443","status":"Healthy","tags":["db","sql","postgres"]},"Redis Check":{"data":{},"duration":"00:00:00.1884614","status":"Healthy","tags":["redis"]}}}
+```
+
 ### Blog Service
 
 <div>
@@ -34,6 +39,10 @@ Cookies are used for JWT Tokens storing.
 
 - Responsible for CRUD operations (blog, like, comment).
 - Authenticate requests by checking tokens on cache
+- Health Check (Custom healthcheck for mongo db at /BlogService/HealthCheck/MongoDBHealthCheck.cs)
+```
+{"status":"Healthy","totalDuration":"00:00:00.6547663","entries":{"MongoDB Check":{"data":{},"description":"MongoDB is reachable and has the expected collection.","duration":"00:00:00.6431295","status":"Healthy","tags":["Blog service mongo db"]},"Redis Check":{"data":{},"duration":"00:00:00.2648948","status":"Healthy","tags":["redis"]}}}
+```
 
 ### Front-End
 - It is a simple version of medium.com
