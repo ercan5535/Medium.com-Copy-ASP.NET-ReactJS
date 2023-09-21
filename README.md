@@ -6,14 +6,14 @@ Cookies are used for JWT Tokens storing.
 <br>
 
 <div>
-  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/2f3b78dd-4497-45f6-92a7-6e8bd593c80c" width="500" height="400">
+  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/53b1f173-f476-4c4f-a13d-b255200830e8" width="500" height="400">
 </div>
 
 # Services
 
 ### User Service
 <div>
-  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/d802e4c4-c991-4bc2-85dd-b4551d784ad7" width="250" >
+  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/b12ca840-859f-4ed5-a5d7-93cec033b5ec" width="250" >
 </div>
 
 - Responsible for User Register/Login/Logut
@@ -28,7 +28,7 @@ Cookies are used for JWT Tokens storing.
 
 ### Blog Service
 <div>
-  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/a1a38e2a-eb23-4b44-b7e3-96ab46ae99b7" width="250" >
+  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/dde8f689-86c8-47f3-9c4d-1d743262d5e1" width="250" >
 </div>
 
 - Responsible for CRUD operations (blog, like, comment).
