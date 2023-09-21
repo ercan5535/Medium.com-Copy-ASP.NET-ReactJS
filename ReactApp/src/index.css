@@ -1,0 +1,136 @@
+.error-message{
+  color: red;
+}
+
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
+.content-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-item-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 10px;
+}
+
+.content-item-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for two buttons per row */
+}
+
+.content-item-image{
+  flex: 1;
+  margin: auto;
+}
+
+.item-image{
+  max-width: 95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-caption {
+    text-align: center;
+    margin: 10px;
+}
+
+.image-caption > textarea {
+  text-align: center;
+  border:0;
+  outline: none;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+}
+
+.content-item-text{
+  height: 100px;
+  margin: 10px;
+  width: 50%;
+  flex: 1;
+  word-wrap: break-word;
+}
+
+.content-item-markdown{
+  margin: 10px;
+  width: 50%;
+  flex: 1;
+}
+
+.blog-card{
+  width: 50%;
+}
+
+.horizontal-line{
+  border-bottom: '2px solid gray';
+  box-shadow: '2px 2px 2px rgba(0, 0, 0, 0.3)';
+  width: 50%;
+
+}
+
+.info-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 70px;
+}
+
+.first-info{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 30px;
+  height: 100%;
+}
+
+.first-info > p{
+  margin: 0;
+}
+
+.second-info{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-right: 30px;
+  height: 100%;
+}
+
+.like-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.card-info-bar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-card{
+  width: 50%;
+}
