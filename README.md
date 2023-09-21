@@ -27,6 +27,7 @@ Cookies are used for JWT Tokens storing.
 ```
 
 ### Blog Service
+
 <div>
   <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/dde8f689-86c8-47f3-9c4d-1d743262d5e1" width="250" >
 </div>
