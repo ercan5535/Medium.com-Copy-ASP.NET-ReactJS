@@ -65,7 +65,8 @@ services:
       ConnectionStrings__DefaultSQLConnection: "Username=user_db_username;Password=user_db_password;Host=user_db;Port=5432;Database=users_database;"
       ConnectionStrings__DefaultRedisConnection: "redis:6379"
       ASPNETCORE_URLS: http://+:81
-    command: sh -c "./check_db.sh && dotnet UserService.dll"
+    command: sh -c "./check_user_db.sh && dotnet UserService.dll"
+    #command: sh -c "dotnet UserService.dll"
     depends_on:
       - redis
       - user_db

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 connection_string=$ConnectionStrings__DefaultSQLConnection
 
 # Parse the connection string to extract the relevant parameters

@@ -15,7 +15,7 @@ WORKDIR /App
 
 # Install postgresql client
 RUN apt-get update && apt-get install -y postgresql-client
-COPY check_db.sh .
+COPY check_user_db.sh .
 
 COPY --from=build-env /App/out .
 #ENTRYPOINT ["dotnet", "UserService.dll"]
