@@ -66,7 +66,6 @@ services:
       ConnectionStrings__DefaultRedisConnection: "redis:6379"
       ASPNETCORE_URLS: http://+:81
     command: sh -c "./check_user_db.sh && dotnet UserService.dll"
-    #command: sh -c "dotnet UserService.dll"
     depends_on:
       - redis
       - user_db
