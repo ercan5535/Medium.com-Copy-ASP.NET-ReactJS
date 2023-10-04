@@ -50,8 +50,8 @@ export default function RegisterPage ({setAlertMessage}){
             setAlertMessage("Registered succesfully"); // Update alert message
           }
           else{
-            const response_data = await register_response.text();
-            setErrorMessage(response_data); // Update error message
+            var response_json = await register_response.json()
+            setErrorMessage(response_json.message);// Update error message
           }
     }
 

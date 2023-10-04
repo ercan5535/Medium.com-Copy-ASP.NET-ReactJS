@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aR7H6fkwIYzsMzll1mmcl0SpQhy3E2OjhYFDQsVa9Webf2NtvFxQ2ZgkP/5O1a3cZgUtyNuFcw1rqlZ/VcF7Kg==",
+  "dgSpecHash": "uC/wHrP11t8iOgiOIPIAmWGZeSJBNdtHliQgY9KpUJsRaqjGF8eCI1d+70CkO2P4hDmVNDa2l5fqjRut15kIaQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj",
+  "projectFilePath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ercan\\.nuget\\packages\\aspnetcore.healthchecks.mongodb\\7.0.0\\aspnetcore.healthchecks.mongodb.7.0.0.nupkg.sha512",
     "C:\\Users\\ercan\\.nuget\\packages\\aspnetcore.healthchecks.redis\\7.0.0\\aspnetcore.healthchecks.redis.7.0.0.nupkg.sha512",

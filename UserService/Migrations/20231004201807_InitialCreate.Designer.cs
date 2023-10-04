@@ -11,7 +11,7 @@ using UserService.Data;
 namespace UserService.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230913082500_InitialCreate")]
+    [Migration("20231004201807_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -43,6 +43,14 @@ namespace UserService.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UsersTable");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            PasswordHash = "$2a$11$SZmRPb6GZoKm3eQhj/lMOOOcQ9S2caIO60YfhaBSxEmsBbIQ1akQS",
+                            UserName = "user1"
+                        });
                 });
 #pragma warning restore 612, 618
         }

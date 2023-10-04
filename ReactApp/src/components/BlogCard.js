@@ -14,12 +14,11 @@ export default function BlogCard({Blog}) {
   }
 
   return (
-    <div className='blog-card'>
-      <Card className="text-center mt-4 blog-card" bg="" border='primary'>
-        <Card.Header>Featured</Card.Header>
+      <Card className="text-center blog-card" bg="">
         <Card.Body>
           <Card.Title>{Blog.blogTitle}</Card.Title>
           <Card.Text>
+          <hr/>
           <div className='card-info-bar'>
                 <div>
                   <i className="bi bi-person-circle"> {Blog.blogAuthor}</i>
@@ -35,14 +34,11 @@ export default function BlogCard({Blog}) {
                       {Blog.commentsCount}
                   </div>
                 </div>
-
           </div>
           </Card.Text>
           
           <Button onClick={()=> navigate(`/${Blog.blogAuthor}/${Blog.id}`)} variant="secondary">Read Blog</Button>
         </Card.Body>
       </Card>
-
-    </div>
   );
 }

@@ -24,6 +24,11 @@ namespace UserService.Migrations
                 {
                     table.PrimaryKey("PK_UsersTable", x => x.UserId);
                 });
+
+            migrationBuilder.InsertData(
+                table: "UsersTable",
+                columns: new[] { "UserId", "PasswordHash", "UserName" },
+                values: new object[] { 1, "$2a$11$SZmRPb6GZoKm3eQhj/lMOOOcQ9S2caIO60YfhaBSxEmsBbIQ1akQS", "user1" });
         }
 
         /// <inheritdoc />

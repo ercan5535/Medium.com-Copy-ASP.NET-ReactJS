@@ -41,8 +41,8 @@ export default function LoginPage({setLoginStatus}){
             setLoginStatus(true)
         }
         else{
-            const response_data = await login_response.text();
-            setErrorMessage(response_data); // Update error message
+            var response_json = await login_response.json()
+            setErrorMessage(response_json.message); // Update error message
         }
     }
 

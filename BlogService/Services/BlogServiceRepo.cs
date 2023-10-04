@@ -318,7 +318,7 @@ namespace BlogService.Services
             }
         }
 
-        public async Task<ServiceResponse<bool>> CreateCommentAsync(string blogId, string AccessToken, CreateCommentDto createCommentDto)
+        public async Task<ServiceResponse<BlogCommentItem>> CreateCommentAsync(string blogId, string AccessToken, CreateCommentDto createCommentDto)
         {
             try
             {
@@ -334,13 +334,14 @@ namespace BlogService.Services
                 var update = Builders<Blog>.Update.Push(b => b.Comments, newComment);
 
                 await _blogCollection.UpdateOneAsync(filter, update);
-                return new ServiceResponse<bool> {
+                return new ServiceResponse<BlogCommentItem> {
+                    Data = newComment,
                     Message = "Comment created succesfully"
                 };
             }
             catch (Exception ex)
             {
-                return new ServiceResponse<bool> {
+                return new ServiceResponse<BlogCommentItem> {
                     Success = false,
                     Message = "Failed to create comment, error:" + ex.Message
                 };

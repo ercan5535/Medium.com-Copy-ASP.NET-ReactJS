@@ -47,8 +47,6 @@ export default function HomePage (){
     
     const handleScroll = () => {
         const threshold = 100
-        console.log(window.innerHeight + document.documentElement.scrollTop)
-        console.log(document.documentElement.offsetHeight - threshold)
         if (
             !isLoading && 
             (window.innerHeight + document.documentElement.scrollTop >

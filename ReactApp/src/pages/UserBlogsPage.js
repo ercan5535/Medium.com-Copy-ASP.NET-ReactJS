@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import BlogCard from '../components/BlogCard'
 import {useParams} from "react-router-dom";
 
-export default function UserBlogs(){
+export default function UserBlogsPage(){
     let { user } = useParams();
     var page = 1;
     var blockRequest = false
@@ -60,7 +60,7 @@ export default function UserBlogs(){
 
     return (
         <main className='content-block'>
-            <h1>User Blogs</h1>
+            <h1>{`${user}'s Blogs`}</h1>
             {blogsData.map((blog) => {
                 return (
                     <BlogCard key={blog.id} Blog={blog} />

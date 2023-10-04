@@ -2033,11 +2033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj",
+      "projectUniqueName": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj",
       "projectName": "BlogService",
-      "projectPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj",
+      "projectPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj",
       "packagesPath": "C:\\Users\\ercan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\obj\\",
+      "outputPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ercan\\AppData\\Roaming\\NuGet\\NuGet.Config",

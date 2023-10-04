@@ -16,6 +16,7 @@ namespace BlogService.Models
         public string Author { get; set; }
         [BsonElement("comment")]
         public string Comment { get; set; }
+        
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

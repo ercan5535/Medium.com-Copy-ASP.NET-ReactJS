@@ -19,7 +19,7 @@ namespace BlogService.Services
         Task<ServiceResponse<bool>> DeleteBlogAsync(string blogId, string userName);
         Task<ServiceResponse<bool>> LikeBlog(string blogId, string userId);
         Task<ServiceResponse<bool>> RemoveLikeBlog(string blogId, string userId);
-        Task<ServiceResponse<bool>> CreateCommentAsync(string blogId, string userName, CreateCommentDto createCommentDto);
+        Task<ServiceResponse<BlogCommentItem>> CreateCommentAsync(string blogId, string userName, CreateCommentDto createCommentDto);
         Task<ServiceResponse<bool>> DeleteCommentAsync(string blogId, string userName, DeleteCommentDto deleteCommentDto);
         Task<ServiceResponse<bool>> UpdateCommentAsync(string blogId, string userName, UpdateCommentDto updateCommentDto);
     }

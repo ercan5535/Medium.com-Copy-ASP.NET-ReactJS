@@ -31,21 +31,26 @@ export default function NewBlogPage ({setAlertMessage}){
             "type": "image",
             "content": "",
         }
- 
-        // Get uploaded image
-        const selectedFile = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-            const base64String = reader.result;
-
-            // Update the state with the new data
-            inputTemplate.content = base64String + ",alt="
-            const updatedBlogData = { ...blogData };
-            updatedBlogData.blogContent = [...updatedBlogData.blogContent, inputTemplate];
-            setBlogData(updatedBlogData);
-        };
-      
-        reader.readAsDataURL(selectedFile);
+        
+        try{
+            // Get uploaded image
+            const selectedFile = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64String = reader.result;
+    
+                // Update the state with the new data
+                inputTemplate.content = base64String + ",alt="
+                const updatedBlogData = { ...blogData };
+                updatedBlogData.blogContent = [...updatedBlogData.blogContent, inputTemplate];
+                setBlogData(updatedBlogData);
+            };
+          
+            reader.readAsDataURL(selectedFile);
+        }
+        catch{
+            console.log("image uploading is cancelled")
+        }
         };
 
     function handleChangeTitle(event){
@@ -99,7 +104,7 @@ export default function NewBlogPage ({setAlertMessage}){
                 return <ContentInput key={contentIndex} contentItem={contentItem} index={contentIndex} blogData={blogData} setBlogData={setBlogData}/>
             })}
            
-            <Dropdown>
+            <Dropdown className='new-content'>
                 <Dropdown.Toggle variant="light" id="dropdown-basic" className='rounded-circle'>
                     +
                 </Dropdown.Toggle>

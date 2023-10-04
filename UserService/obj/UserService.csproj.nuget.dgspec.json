@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj": {}
+    "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj": {
+    "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj",
+        "projectUniqueName": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj",
+        "projectPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj",
         "packagesPath": "C:\\Users\\ercan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\obj\\",
+        "outputPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ercan\\AppData\\Roaming\\NuGet\\NuGet.Config",

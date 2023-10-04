@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Alert from 'react-bootstrap/Alert';
 import NavigationBar from './components/NavigationBar';
 import AlertDismissible from './components/AlertDismissible';
 import HomePage from './pages/HomePage';
@@ -8,11 +7,11 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import BlogPage from './pages/BlogPage';
 import NewBlogPage from './pages/NewBlogPage';
-import UserBlogs from './pages/UserBlogs';
+import UserBlogsPage from './pages/UserBlogsPage';
 import SearchedBlogPage from './pages/SearchedBlogPage';
 
 function App() {
-  const [loginStatus, setLoginStatus] = useState(false)
+  const [loginStatus, setLoginStatus] = useState(null)
   const [alertMessage, setAlertMessage] = useState("")
   const location = useLocation();
 
@@ -34,6 +33,8 @@ function App() {
     else{
     console.log("Authentication failed")
     setLoginStatus(false)
+    // make sure local storage is clear
+    localStorage.removeItem("userData")
     }
   }
 
@@ -48,12 +49,12 @@ function App() {
       <AlertDismissible alertMessage={alertMessage}/>
       <Routes>
         <Route exact path="/" element = {<HomePage/>}/>
-        <Route path="/:user/:id" element={<BlogPage loginStatus={loginStatus}/>}/>
+        <Route path="/:user/:id" element={<BlogPage loginStatus={loginStatus} setAlertMessage={setAlertMessage}/>}/>
         <Route path="/search-blog" element={<SearchedBlogPage/>}/>
         <Route path="/new-blog" element={loginStatus ? <NewBlogPage setAlertMessage={setAlertMessage}/> : <Navigate to="/"/>}/>
-        <Route path="/:user" element={<UserBlogs/>}/>
-        <Route path="/login" element = {!loginStatus ? <LoginPage setLoginStatus={setLoginStatus}/> : <Navigate to="/"/>}/>
-        <Route path="/register" element = {!loginStatus ? <RegisterPage setAlertMessage={setAlertMessage}/> : <Navigate to="/"/>}/>
+        <Route path="/:user/blogs" element={<UserBlogsPage/>}/>
+        <Route path="/login" element={!loginStatus ? <LoginPage setLoginStatus={setLoginStatus}/> : <Navigate to="/"/>}/>
+        <Route path="/register" element={!loginStatus ? <RegisterPage setAlertMessage={setAlertMessage}/> : <Navigate to="/"/>}/>
       </Routes>
     </main>
   );

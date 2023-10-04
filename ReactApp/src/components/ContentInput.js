@@ -100,6 +100,7 @@ export default function ContentInput({contentItem, index, handleChangeText, blog
                             placeholder='Type caption for image (optional)'
                             content-index={index}
                             onChange={handleChangeCaption}
+                            value={contentItem.content.split(",alt=")[1]}
                         />
                     </div>
                 </div>

@@ -2,7 +2,12 @@
   color: red;
 }
 
-.dropdown-toggle::after {
+.form-control:focus {
+  border-color: #00000052;
+  box-shadow: 0 0 0 0.2rem rgba(52, 51, 51, 0.25);
+} 
+
+.new-content >.dropdown-toggle::after {
   display: none !important; 
 }
 
@@ -67,15 +72,12 @@
   flex: 1;
 }
 
-.blog-card{
-  width: 50%;
-}
 
 .horizontal-line{
   border-bottom: '2px solid gray';
   box-shadow: '2px 2px 2px rgba(0, 0, 0, 0.3)';
   width: 50%;
-
+  
 }
 
 .info-bar{
@@ -84,7 +86,6 @@
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  height: 70px;
 }
 
 .first-info{
@@ -93,6 +94,7 @@
   flex-direction: column;
   margin-left: 30px;
   height: 100%;
+  gap: 20px;
 }
 
 .first-info > p{
@@ -105,6 +107,7 @@
   flex-direction: column;
   margin-right: 30px;
   height: 100%;
+  gap: 20px;
 }
 
 .like-container{
@@ -125,12 +128,83 @@
 
 .blog-cards-container{
   display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 20px;
 }
 
 .blog-card{
   width: 50%;
+  margin-top: 20px;
+}
+
+.nav-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left{
+  width: 30%;
+  justify-content: left;
+}
+
+.nav-center{
+  width: 30%;
+  justify-content: center;
+}
+
+.nav-right{
+  width: 30%;
+  justify-content: right;
+}
+
+.updel-buttons{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: flex-end;
+  width: 50%;
+  gap: 5px;
+}
+
+.drawer-body-block{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.drawer-header{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.comment-info-bar{
+  display: flex;
+  justify-content: space-between; 
+}
+
+.comment-info-right{
+  display: flex;
+}
+
+.share-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blacked{
+  color: rgb(0, 0, 0);
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #000000;
+  text-decoration: none;
+  background-color: #e9ecef;
+}
+
+.delete-comment-modal{
+  z-index: 1300;
 }

@@ -4022,11 +4022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj",
+      "projectUniqueName": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj",
       "projectName": "UserService",
-      "projectPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\UserService.csproj",
+      "projectPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\UserService.csproj",
       "packagesPath": "C:\\Users\\ercan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\UserService\\obj\\",
+      "outputPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\UserService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ercan\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -39,28 +39,29 @@ export default function NavigationBar({loginStatus}){
     <Navbar bg="dark" data-bs-theme="light" expand="lg" className="bg-body-tertiary" >
     <Container>                                       
       <Navbar.Brand href="/">Bll00g</Navbar.Brand>    
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">         
-        <Nav className="me-auto">                     
-          {loginStatus && <Link to="/new-blog" className="nav-link">New Blog</Link>}
-          <Form method='get' action='/search-blog' className="align-content-center">              
+      <Navbar.Toggle  aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse className='nav-content'  id="basic-navbar-nav">         
+        <Nav className='nav-left' >                     
+          {loginStatus && <Link to="/new-blog"  className="nav-link">New Blog</Link>}
+          
+        </Nav >
+
+        <Nav className='nav-center'> 
+          <Form method='get' action='/search-blog' >              
             <Row>                                     
               <Col xs="auto">                         
                 <Form.Control                         
                   type="text"                         
                   placeholder="Search Blog"
-                  className=" mr-sm-2"
+                  className="mr-sm-2"
                   name="q"
                 />                      
-              </Col>                    
-              <Col xs="auto">           
-                <Button variant="secondary" type="submit">Submit</Button>
-              </Col>               
+              </Col>         
             </Row>                 
           </Form>  
-        </Nav >                                       
+        </Nav>                                   
 
-        <Nav>
+        <Nav className='nav-right'>
           <NavDropdown title={loginStatus ? userData.userName : "Don't Have Account?"} id="basic-nav-dropdown">
             {
               !loginStatus && <>
@@ -70,7 +71,7 @@ export default function NavigationBar({loginStatus}){
             }
             {
               loginStatus && <>
-                <NavDropdown.Item href={"/"+`${JSON.parse(localStorage.getItem("userData")).userName}`}>My Blogs</NavDropdown.Item>
+                <NavDropdown.Item href={`/${JSON.parse(localStorage.getItem("userData")).userName}/blogs`}>My Blogs</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={() => logout_request()}>
                   Logout

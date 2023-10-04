@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj": {}
+    "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj": {
+    "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj",
+        "projectUniqueName": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj",
         "projectName": "BlogService",
-        "projectPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\BlogService.csproj",
+        "projectPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\BlogService.csproj",
         "packagesPath": "C:\\Users\\ercan\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\.net-full-project\\BlogService\\obj\\",
+        "outputPath": "c:\\Users\\ercan\\OneDrive\\Masaüstü\\Medium.com-Copy-ASP.NET-ReactJS\\BlogService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ercan\\AppData\\Roaming\\NuGet\\NuGet.Config",
