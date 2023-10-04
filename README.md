@@ -78,3 +78,4 @@ docker-compose up
 ```
 command is enough to run all services <br>
 NGINX will listen localhost:80 for serving react app <br>
+You may login with Username: User1, Password: User1 or Register new account.
