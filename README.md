@@ -9,6 +9,7 @@ Cookies are used for JWT Tokens storing.
   <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/53b1f173-f476-4c4f-a13d-b255200830e8" width="500" height="400">
 </div>
 
+
 # Services
 
 ### User Service
@@ -44,16 +45,28 @@ Cookies are used for JWT Tokens storing.
 {"status":"Healthy","totalDuration":"00:00:00.6547663","entries":{"MongoDB Check":{"data":{},"description":"MongoDB is reachable and has the expected collection.","duration":"00:00:00.6431295","status":"Healthy","tags":["Blog service mongo db"]},"Redis Check":{"data":{},"duration":"00:00:00.2648948","status":"Healthy","tags":["redis"]}}}
 ```
 
+### Mongo Db
+- Store Blog documents
+- /MongoDb/mongo-init.js creates database, collection and blog examples
+
 ### Front-End
 - It is a simple version of medium.com
 - Blogs can be created cell by cell like on medium.com
-- react-markdown used for text displaying
+- React-Bootstrap and MaterialUI is used for UI components
+- React-markdown used for text displaying
+
+Snapshot of Frontend(blog page with comment drawer)
+<div>
+  <img src="https://github.com/ercan5535/Medium.com-Copy-ASP.NET-ReactJS/assets/67562422/2afd1853-da9b-4056-8a9d-5d8dafe9f47a" width="800" height="400">
+</div>
+
+
   
 ### API Gateway
 - Serves static files
 - Redirects reqeusts to relevant service
 
-### Cache
+### Redis Cache
 - Holds (Token, UserData) pairs
 - Holds JWT Access tokens for validation from Blog Service
 - Holds JWT Refresh tokens for blacklisting Refresh tokens
