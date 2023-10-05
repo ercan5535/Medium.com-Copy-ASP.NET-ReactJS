@@ -20,7 +20,7 @@ Cookies are used for JWT Tokens storing.
 - Responsible for User Register/Login/Logut
 - Responsible for Create/Refresh/Store/Blacklist JWT
 - JWT operations handled by Helpers/JwtHelper.cs
-- JWT parameters defined on appsettings.json
+- JWT parameters defined on appsettings.json (life times in minute)
 ```
   "JwtSecretKey": "MY-SECRET-KEY-123456789",
   "AccessTokenLifetime": 5,
