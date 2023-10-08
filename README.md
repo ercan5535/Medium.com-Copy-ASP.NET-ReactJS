@@ -32,6 +32,11 @@ Cookies are used for JWT Tokens storing.
 {"status":"Healthy","totalDuration":"00:00:00.1951767","entries":{"Postgre SQL Server Check":{"data":{},"duration":"00:00:00.0882443","status":"Healthy","tags":["db","sql","postgres"]},"Redis Check":{"data":{},"duration":"00:00:00.1884614","status":"Healthy","tags":["redis"]}}}
 ```
 
+- /UserService/check_user_db.sh ensure User Database is ready before migrations
+```
+command: sh -c "./check_user_db.sh && dotnet UserService.dll"
+``` 
+
 ### Blog Service
 
 <div>
