@@ -23,7 +23,7 @@ Cookies are used for JWT Tokens storing.
 - JWT parameters defined on appsettings.json (life times in minute)
 ```
   "JwtSecretKey": "MY-SECRET-KEY-123456789",
-  "AccessTokenLifetime": 5,
+  "AccessTokenLifetime": 10,
   "RefreshTokenLifetime": 60
 ```
 
