@@ -31,6 +31,7 @@ namespace UserService.Controllers
             {
                 return BadRequest(response);
             }
+            
             return Ok(response);
         }
     }

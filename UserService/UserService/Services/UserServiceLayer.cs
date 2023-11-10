@@ -30,7 +30,7 @@ namespace UserService.Data
             {
                 // Ensure username is available
                 var userNameCheck = await _repository.GetUserByUsername(userCreateDto.UserName);
-                if(userNameCheck != null)
+                if(userNameCheck is not null)
                 {
                     throw new Exception("Username is already used");
                 }
@@ -61,7 +61,7 @@ namespace UserService.Data
             try
             {
                 var user = await _repository.GetUserByUsername(userLoginDto.UserName);
-                if (user == null)
+                if (user is null)
                 {
                     throw new Exception($"Username {userLoginDto.UserName} not found");
                 }
@@ -89,7 +89,7 @@ namespace UserService.Data
             {
                 // Get byte format from cache
                 byte[] cacheValue = await _repository.GetCache(accessToken);
-                if (cacheValue == null)
+                if (cacheValue is null)
                 {
                     throw new Exception("Token not found in cache"); 
                 }

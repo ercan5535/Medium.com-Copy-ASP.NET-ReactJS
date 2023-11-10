@@ -14,17 +14,17 @@ namespace BlogService.Controllers
     [Route("api/[controller]")]
     public class BlogController : ControllerBase
     {
-        private readonly IBlogServiceRepo _repository;
+        private readonly IBlogServiceLayer _service;
 
-        public BlogController(IBlogServiceRepo repository)
+        public BlogController(IBlogServiceLayer repository)
         {
-            _repository = repository;
+            _service = repository;
         }
 
         [HttpGet]
         public async Task<ActionResult<Blog>> GetAllBlogs() 
         {
-            var response = await _repository.GetAllBlogsAsync();
+            var response = await _service.GetAllBlogsAsync();
             if (!response.Success){
                 return BadRequest(response);
             }
@@ -33,9 +33,10 @@ namespace BlogService.Controllers
 
         [HttpGet("meta")]
         public async Task<ActionResult<IEnumerable<GetBlogMetaDto>>> GetBlogsMeta(
-            int page = 1, int pageSize = 3, string? username = null, string? query = null)
+            int page = 1, int pageSize = 3, string? username = null, string? query = null
+        )
         {
-            var response = await _repository.GetAllBlogsMetaAsync(page, pageSize, username, query);
+            var response = await _service.GetAllBlogsMetaAsync(page, pageSize, username, query);
             if (!response.Success){
                 return BadRequest(response);
             }
@@ -45,7 +46,7 @@ namespace BlogService.Controllers
         [HttpGet("{blogId}")]
         public async Task<ActionResult<Blog>> GetSingleBlog(string blogId) 
         {
-            var response = await _repository.GetSingleBlogAsync(blogId);
+            var response = await _service.GetSingleBlogAsync(blogId);
             if (!response.Success){
                 return BadRequest(response);
             }
@@ -55,87 +56,184 @@ namespace BlogService.Controllers
         [HttpPost]
         public async Task<ActionResult<Blog>> CreateBlog([FromBody] CreateBlogDto createBlogDto) 
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.CreateBlogAsync(AccessToken, createBlogDto);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.CreateBlogAsync(authResponse.Data.UserName, createBlogDto);
             if (!response.Success){
                 return BadRequest(response);
             }
+            
             return Ok(response);
         }
 
         [HttpPut("{blogId}")]
         public async Task<ActionResult> UpdateContent(string blogId, [FromBody] List<BlogContentItem> contentList) 
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.UpdateBlogContentAsync(blogId, contentList, AccessToken);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.UpdateBlogContentAsync(blogId, contentList, authResponse.Data.UserName);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
 
         [HttpDelete("{blogId}")]
         public async Task<ActionResult> DeleteBlog(string blogId) 
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.DeleteBlogAsync(blogId, AccessToken);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.DeleteBlogAsync(blogId, authResponse.Data.UserName);
             if (!response.Success){
                 return BadRequest(response);
             }
+            
             return NoContent();
         }
 
         [HttpPost("like/{blogId}")]
         public async Task<ActionResult> LikeBlog(string blogId)
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.LikeBlog(blogId, AccessToken);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.LikeBlog(blogId, authResponse.Data.UserName);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
 
         [HttpPost("unlike/{blogId}")]
         public async Task<ActionResult> UnlikeBlog(string blogId)
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.RemoveLikeBlog(blogId, AccessToken);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.RemoveLikeBlog(blogId, authResponse.Data.UserName);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
     
         [HttpPost("comment/{blogId}")]
         public async Task<ActionResult> CreateComment(string blogId, [FromBody] CreateCommentDto createCommentDto )
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.CreateCommentAsync(blogId, AccessToken, createCommentDto);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.CreateCommentAsync(blogId, authResponse.Data.UserName, createCommentDto);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
 
         [HttpDelete("comment/{blogId}")]
         public async Task<ActionResult> DeleteComment(string blogId, [FromBody] DeleteCommentDto deleteCommentDto)
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.DeleteCommentAsync(blogId, AccessToken, deleteCommentDto);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.DeleteCommentAsync(blogId, authResponse.Data.UserName, deleteCommentDto);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
+
         [HttpPut("comment/{blogId}")]
         public async Task<ActionResult> UpdateComment(string blogId, [FromBody] UpdateCommentDto updateCommentDto)
         {
-            string AccessToken = Request.Cookies["AccessToken"];
-            var response = await _repository.UpdateCommentAsync(blogId, AccessToken, updateCommentDto);
+            string accessToken = Request.Cookies["AccessToken"];
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return Unauthorized();
+            }
+
+            var authResponse = await _service.Authenticate(accessToken);
+            if (!authResponse.Success)
+            {
+                return Unauthorized(authResponse);
+            }
+
+            var response = await _service.UpdateCommentAsync(blogId, authResponse.Data.UserName, updateCommentDto);
             if (!response.Success){
                 return BadRequest(response);
             }
+
             return Ok(response);
         }
     }

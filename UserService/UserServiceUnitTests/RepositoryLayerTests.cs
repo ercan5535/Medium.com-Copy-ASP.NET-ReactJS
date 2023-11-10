@@ -1,21 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
-using Moq;
-using Newtonsoft.Json;
-using NUnit.Framework;
 using UserService.Data;
-using UserService.Dtos;
-using UserService.Helpers;
 using UserService.Models;
 using UserService.Repositories;
 

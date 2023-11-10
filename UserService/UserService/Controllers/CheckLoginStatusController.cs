@@ -25,14 +25,14 @@ namespace UserService.Controllers
         public async Task<ActionResult> CheckLoginStatus()
         {
             // Get tokens from cookie
-            string AccessToken = Request.Cookies["AccessToken"];
-            string RefreshToken = Request.Cookies["RefreshToken"];
+            string accessToken = Request.Cookies["AccessToken"];
+            string refreshToken = Request.Cookies["RefreshToken"];
             
             ServiceResponse<UserGetDto> response;
             // First Check Access Token 
-            if (AccessToken != null)
+            if (!string.IsNullOrEmpty(accessToken))
             {
-                response = await _service.CheckAccessTokenCache(AccessToken);
+                response = await _service.CheckAccessTokenCache(accessToken);
                 if (response.Success)
                 {
                     return Ok(response);
@@ -40,7 +40,7 @@ namespace UserService.Controllers
             }
 
             // Check Refresh Token
-            if (RefreshToken == null)
+            if (string.IsNullOrEmpty(refreshToken))
             {
                 response = new ServiceResponse<UserGetDto>
                 {
@@ -51,7 +51,7 @@ namespace UserService.Controllers
             }
 
             // Validate refresh token
-            response = await _service.ValidateBlacklistRefreshToken(RefreshToken);
+            response = await _service.ValidateBlacklistRefreshToken(refreshToken);
             if (!response.Success){
                 return Unauthorized(response);
             }

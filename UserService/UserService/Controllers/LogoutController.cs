@@ -24,20 +24,20 @@ namespace UserService.Controllers
         public async Task<ActionResult> Logout()
         {
             // Get tokens from cookie
-            string AccessToken = Request.Cookies["AccessToken"];
-            string RefreshToken = Request.Cookies["RefreshToken"];
+            string accessToken = Request.Cookies["AccessToken"];
+            string refreshToken = Request.Cookies["RefreshToken"];
              
             // Delete access token from cache
-            if (AccessToken != null)
+            if (!string.IsNullOrEmpty(accessToken))
             {
-                await _service.LogoutUser(AccessToken);
+                await _service.LogoutUser(accessToken);
                 Response.Cookies.Delete("AccessToken");
             }
 
             // Blacklist refresh token
-            if (RefreshToken != null)
+            if (!string.IsNullOrEmpty(accessToken))
             {
-                await _service.ValidateBlacklistRefreshToken(RefreshToken);
+                await _service.ValidateBlacklistRefreshToken(refreshToken);
                 Response.Cookies.Delete("RefreshToken");
             }
             

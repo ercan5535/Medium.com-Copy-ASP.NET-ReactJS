@@ -30,7 +30,7 @@ namespace UserService.Repositories
 
         public async Task<bool> AnyCache(string token)
         {
-            return await _distributedCache.GetAsync(token) != null;
+            return await _distributedCache.GetAsync(token) is not null;
         }
 
         public async Task DeleteCache(string token)

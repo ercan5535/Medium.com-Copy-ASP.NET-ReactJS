@@ -3,14 +3,27 @@ using BlogService.Services;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-// Add mongodb
+// Register mongodb
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
-builder.Services.AddScoped<IBlogServiceRepo, BlogServiceRepo>();
 
-// Add redis cache
+builder.Services.AddScoped<IMongoCollection<Blog>>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<MongoDBSettings>>().Value;
+    var client = new MongoClient(settings.ConnectionURI);
+    var database = client.GetDatabase(settings.DatabaseName);
+    return database.GetCollection<Blog>(settings.CollectionName);
+});
+
+// Register repository, service layers
+builder.Services.AddScoped<IBlogRepositoryLayer, BlogRepositoryLayer>();
+builder.Services.AddScoped<IBlogServiceLayer, BlogServiceLayer>();
+
+// Register redis cache
 builder.Services.AddStackExchangeRedisCache(action =>{
     action.Configuration = builder.Configuration.GetConnectionString("DefaultRedisConnection");
 });
